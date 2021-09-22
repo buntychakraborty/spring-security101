@@ -12,4 +12,8 @@ public class SecurityController {
 		return "Rockkss";
 	}
 
+	@GetMapping("/bye")
+	public String bye() {
+		return "Get Lost";
+	}
 }

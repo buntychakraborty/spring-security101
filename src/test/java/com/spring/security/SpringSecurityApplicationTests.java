@@ -6,6 +6,7 @@ import java.util.Map;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder.BCryptVersion;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
@@ -18,9 +19,11 @@ class SpringSecurityApplicationTests {
 	@Test
 	void testEncoders() {
 		//BCryptPasswordEncoder
-		System.out.println(new BCryptPasswordEncoder().encode("Bunty"));
+		System.out.println(new BCryptPasswordEncoder(31).encode("Bunty"));
+		System.out.println(new BCryptPasswordEncoder(BCryptVersion.$2A).encode("Bunty"));
+		System.out.println(new BCryptPasswordEncoder(BCryptVersion.$2B).encode("Bunty"));
 		//Pbkdf2PasswordEncoder
-		System.out.println(new Pbkdf2PasswordEncoder().encode("jafsj"));
+		System.out.println(new Pbkdf2PasswordEncoder().encode("jaf sj"));
 		//SCryptPasswordEncoder
 		System.out.println(new SCryptPasswordEncoder().encode("jafsj"));
 		
